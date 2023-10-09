@@ -31,7 +31,7 @@ pipeline {
 
     stage('Helm Deploy') {
       steps {
-        sh 'helm install ${APPNAME} ./CHART --set component=${APPNAME}'
+        sh 'helm upgrade -i ${APPNAME} ./CHART --set component=${APPNAME}'
       }
     }
 
