@@ -23,7 +23,15 @@ pipeline {
         dir('APP') {
           git branch: 'main', url: 'https://github.com/raghudevopsb74/${APPNAME}'
         }
-        sh 'find .'
+        dir('CHART') {
+          git branch: 'main', url: 'https://github.com/raghudevopsb74/roboshop-helm'
+        }
+      }
+    }
+
+    stage('Helm Deploy') {
+      steps {
+        sh 'helm install ${APPNAME} ./CHART --set component=${APPNAME}'
       }
     }
 
