@@ -23,7 +23,7 @@ pipeline {
         dir('APP') {
           git branch: 'main', url: 'https://github.com/raghudevopsb74/${APPNAME}'
         }
-        sh 'ls -l '
+        sh 'find .'
       }
     }
 
