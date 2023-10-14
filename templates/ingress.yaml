@@ -47,15 +47,10 @@ spec:
             pathType: {{ .pathType }}
             {{- end }}
             backend:
-              {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion }}
               service:
                 name: {{ .Values.component }}
                 port:
-                  number: {{ $svcPort }}
-              {{- else }}
-              serviceName: {{ .Values.component }}
-              servicePort: {{ .Values.port }}
-              {{- end }}
+                  number: {{ .Values.port }}
           {{- end }}
     {{- end }}
 {{- end }}
