@@ -4,12 +4,12 @@ kind: Job
 metadata:
   name: {{ .Values.component }}
   labels:
-    app.kubernetes.io/name: {{ .Values.COMPONENT }}
+    app.kubernetes.io/name: {{ .Values.component }}
   annotations:
     "helm.sh/hook": pre-install
 
     spec:
       containers:
-      - name: {{ .Values.COMPONENT }}
-        image: 219961291665.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.COMPONENT }}
+      - name: {{ .Values.component }}
+        image: 219961291665.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.component }}
 
