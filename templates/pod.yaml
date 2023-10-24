@@ -1,0 +1,15 @@
+{{- if .Values.schema.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Values.component }}
+  labels:
+    app.kubernetes.io/name: {{ .Values.COMPONENT }}
+  annotations:
+    "helm.sh/hook": pre-install
+
+    spec:
+      containers:
+      - name: schema
+        image: 219961291665.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.COMPONENT }}
+
