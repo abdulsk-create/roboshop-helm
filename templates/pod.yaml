@@ -10,6 +10,6 @@ metadata:
 
     spec:
       containers:
-      - name: schema
+      - name: {{ .Values.COMPONENT }}
         image: 219961291665.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.COMPONENT }}
 
